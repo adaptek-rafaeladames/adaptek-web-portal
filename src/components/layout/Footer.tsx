@@ -24,7 +24,7 @@ export function Footer() {
               alt="Adaptek logo"
               width={120}
               height={36}
-              className="h-8 w-auto mb-4 opacity-90"
+              className="h-8 w-auto mb-4 opacity-90 mix-blend-screen"
             />
             <p className="text-white/70 text-sm leading-relaxed max-w-xs">
               {footer.tagline}

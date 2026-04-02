@@ -1,9 +1,46 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { en } from "@/lib/i18n/en";
 
 const { founders } = en;
+
+/**
+ * FounderPhoto — shows the real photo if found in public/images/,
+ * gracefully falls back to an initial avatar if the file isn't there yet.
+ *
+ * To activate a real photo:
+ * 1. Drop the file into public/images/ with the exact name in en.ts
+ *    e.g. public/images/rafael-adames.jpg
+ * 2. No code changes needed — this component detects it automatically.
+ */
+function FounderPhoto({ src, alt, initial }: { src: string; alt: string; initial: string }) {
+  const [hasError, setHasError] = useState(false);
+
+  if (hasError) {
+    return (
+      <div className="w-full h-full bg-gradient-to-br from-brand-orange-light to-brand-green-light flex items-center justify-center">
+        <span className="text-3xl font-bold font-sans text-brand-orange" aria-hidden="true">
+          {initial}
+        </span>
+      </div>
+    );
+  }
+
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      width={80}
+      height={80}
+      className="w-full h-full object-cover"
+      onError={() => setHasError(true)}
+    />
+  );
+}
 
 /**
  * FoundersSection — introduces Rafael and Vanessa with bios,
@@ -42,15 +79,13 @@ export function FoundersSection() {
           {founders.members.map((member) => (
             <li key={member.name}>
               <Card as="article" className="flex flex-col h-full">
-                {/* Photo */}
+                {/* Photo — drops in automatically from public/images/ */}
                 <div className="flex items-center gap-5 mb-6">
-                  <div className="w-20 h-20 rounded-2xl bg-brand-offwhite overflow-hidden shrink-0 border-2 border-brand-orange-light">
-                    <Image
+                  <div className="w-20 h-20 rounded-2xl overflow-hidden shrink-0 border-2 border-brand-orange-light">
+                    <FounderPhoto
                       src={member.imageSrc}
                       alt={member.imageAlt}
-                      width={80}
-                      height={80}
-                      className="w-full h-full object-cover"
+                      initial={member.name.charAt(0)}
                     />
                   </div>
                   <div>

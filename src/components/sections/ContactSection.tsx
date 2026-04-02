@@ -91,7 +91,7 @@ function Field({
           aria-invalid={!!error}
           aria-describedby={error ? `${id}-error` : undefined}
           className={cn(inputClasses, "resize-none")}
-          placeholder={`Your ${label.toLowerCase()}…`}
+          placeholder="Tell us about your organization and what you'd like AI to help with…"
         />
       ) : (
         <input
