@@ -1,0 +1,56 @@
+# Cursor Rules — Adaptek Web Portal
+
+For all frontend code in this project:
+
+## Stack
+- Next.js 14 App Router with TypeScript (strict mode)
+- Tailwind CSS utility classes — no inline styles
+- React Server Components by default; add "use client" only when needed
+- Static export for Firebase Hosting (`output: "export"` in next.config.ts)
+
+## Code Quality
+- No `any` types. No `ts-ignore` without explanation.
+- Prefer `type` over `interface` for component props.
+- Use `@/` alias for all imports (never `../`).
+- Keep components under 150 lines. Split when larger.
+- Use `cn()` from `@/lib/cn` for conditional class merging.
+
+## Accessibility (WCAG 2.1 AA — Required, Not Optional)
+- Semantic HTML: header, nav, main, section, footer
+- Every section has `aria-labelledby` pointing to its heading
+- Every image has descriptive `alt` text (or `alt=""` if decorative)
+- All interactive elements are keyboard accessible with visible focus rings
+- Form inputs always have associated `<label>` elements
+- Error messages use `role="alert"` or `aria-live="polite"`
+- Skip link in Navbar: `<a href="#main-content">Skip to content</a>`
+
+## Brand Colors (use these, never raw hex)
+- Primary: `brand-orange` (#FF7F2E), hover: `brand-orange-dark`
+- Accent: `brand-green` (#3D9970)
+- Text: `brand-charcoal` (#3A4A52)
+- Background: `brand-offwhite` (#F9F8F6)
+
+## Images & Fonts
+- Always use `next/image` (<Image />) — never raw <img> tags
+- Always use `next/font` for Google Fonts — never <link> in HTML
+
+## Content Rules
+- No lorem ipsum — use real Adaptek copy or mark with [TODO: copy]
+- CTA primary: "Book a 30-minute consult"
+- CTA secondary: "Download AI readiness checklist"
+- Tone: professional, clear, human-centered, jargon-free
+
+## Component Patterns
+- Page sections: export default function XxxSection()
+- UI primitives in src/components/ui/ — always include a *.test.tsx
+- Assembly only in app/page.tsx — no logic there
+
+## Do Not
+- Do not use deprecated React patterns or class components
+- Do not add heavy libraries for things Tailwind handles
+- Do not commit .env files, .firebase/ folder, or firebase-debug.log
+- Do not use outline:none without a replacement focus style
+- Do not use raw hex colors — always reference brand tokens
+
+## Reference
+See CLAUDE.md for the complete rules, folder structure, and examples.
