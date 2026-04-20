@@ -16,7 +16,7 @@ const FORMSPREE_ENDPOINT =
     ? `https://formspree.io/f/${process.env.NEXT_PUBLIC_FORMSPREE_ID}`
     : "https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID";
 
-type FormState = "idle" | "submitting" | "success" | "error";
+type FormState = "idle" | "submitting" | "error";
 
 type FormData = {
   firstName: string;
@@ -184,8 +184,10 @@ export function ContactSection() {
       });
 
       if (response.ok) {
-        setFormState("success");
-        setFormData(initialForm);
+        // Navigate to the dedicated thank-you page.
+        // This creates a clean page view for analytics and gives the visitor
+        // a proper confirmation experience instead of an inline flash message.
+        window.location.href = "/thanks";
       } else {
         setFormState("error");
       }
@@ -217,18 +219,6 @@ export function ContactSection() {
           </p>
         </div>
 
-        {/* Success message */}
-        {formState === "success" && (
-          <div
-            role="alert"
-            aria-live="polite"
-            className="mb-8 p-6 bg-brand-green-light border border-brand-green rounded-2xl text-brand-charcoal text-center"
-          >
-            <p className="text-2xl mb-2" aria-hidden="true">✓</p>
-            <p className="font-semibold font-sans">{contact.successMessage}</p>
-          </div>
-        )}
-
         {/* Error message */}
         {formState === "error" && (
           <div
@@ -241,12 +231,11 @@ export function ContactSection() {
         )}
 
         {/* Form */}
-        {formState !== "success" && (
-          <form
-            onSubmit={handleSubmit}
-            noValidate
-            className="bg-white rounded-3xl shadow-card p-8 md:p-10 space-y-6"
-            aria-label="Contact Adaptek form"
+        <form
+          onSubmit={handleSubmit}
+          noValidate
+          className="bg-white rounded-3xl shadow-card p-8 md:p-10 space-y-6"
+          aria-label="Contact Adaptek form"
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <Field
@@ -321,7 +310,6 @@ export function ContactSection() {
               </Button>
             </div>
           </form>
-        )}
       </div>
     </section>
   );

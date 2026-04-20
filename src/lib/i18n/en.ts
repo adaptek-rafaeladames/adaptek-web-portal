@@ -473,10 +473,39 @@ export const en = {
         "I'd like to learn more about Adaptek's services and which one might be the right fit for us.",
     },
     submit: "Start the Conversation",
-    successMessage:
-      "Thank you! We'll be in touch within one business day.",
     errorMessage:
       "Something went wrong. Please try again or email us directly at rafael.adames@adaptek.ai.",
+  },
+
+  thanks: {
+    eyebrow: "Message received",
+    headline: "You're on our radar.",
+    subheadline:
+      "We read every message personally. You'll hear from us within one business day — no automated sequences, no junior handoffs.",
+    nextSteps: [
+      {
+        number: "1",
+        title: "We review your message",
+        description:
+          "Rafael and Vanessa read every submission directly. We'll assess whether there's a genuine fit and how we can help.",
+      },
+      {
+        number: "2",
+        title: "You hear back within one business day",
+        description:
+          "We'll reply to your work email with either a direct answer or a proposed 30-minute call to go deeper.",
+      },
+      {
+        number: "3",
+        title: "We map a path forward — together",
+        description:
+          "If there's a fit, we'll propose a focused scope of work. No upselling, no bloated retainers — just what your organization actually needs.",
+      },
+    ],
+    connectHeadline: "In the meantime, connect with us directly.",
+    connectSubheadline:
+      "We share perspectives on human-centered AI, disability-informed design, and what responsible adoption really looks like in practice.",
+    backHome: "← Back to home",
   },
 
   footer: {
