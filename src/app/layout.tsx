@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s | Adaptek",
   },
   description:
-    "Adaptek helps healthcare and mid-market organizations deploy AI that people actually trust and use. We combine deep AI engineering with psychology, cyberpsychology, and disability-informed design.",
+    "Adaptek helps healthcare and mid-market organizations deploy AI that people actually trust and use. We combine AI engineering, user-centered design, and disability-informed accessibility — because 95% of AI initiatives fail because of the humans who have to use them.",
   keywords: [
     "AI consulting",
     "human-centered AI",
@@ -35,12 +35,15 @@ export const metadata: Metadata = {
     "AI workflow automation",
     "responsible AI",
     "AI accessibility",
+    "disability-informed AI",
     "AI adoption",
+    "user-centered design",
+    "WCAG accessibility consulting",
     "Massachusetts AI consulting",
   ],
   authors: [
-    { name: "Rafael Adames", url: "https://linkedin.com/in/rafael-adames" },
-    { name: "Vanessa Echandia", url: "https://linkedin.com/in/vanessa-echandia" },
+    { name: "Rafael Adames", url: "https://www.linkedin.com/in/rafaeladames/" },
+    { name: "Vanessa Echandia", url: "https://www.linkedin.com/in/vanessa-echandia-6157753ba/" },
   ],
   creator: "Adaptek",
   openGraph: {
@@ -50,7 +53,7 @@ export const metadata: Metadata = {
     siteName: "Adaptek",
     title: "Adaptek — Human-Centered AI Consulting",
     description:
-      "We build reliable AI workflows, knowledge systems, and agents for healthcare and high-stakes environments — designed around human psychology and accessibility.",
+      "We build AI systems designed around human psychology, disability-informed accessibility, and user-centered design — because technology must work for everyone.",
     images: [
       {
         url: "/images/og-adaptek.png",
@@ -64,7 +67,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Adaptek — Human-Centered AI Consulting",
     description:
-      "We build AI systems that people actually trust and use — designed around human psychology, behavior, and accessibility.",
+      "We build AI systems that people actually trust and use — designed around human psychology, disability-informed accessibility, and user-centered design.",
     images: ["/images/og-adaptek.png"],
   },
   robots: {

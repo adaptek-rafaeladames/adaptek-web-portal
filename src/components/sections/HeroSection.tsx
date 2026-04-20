@@ -6,7 +6,7 @@ const { hero } = en;
 
 /**
  * HeroSection — 2-column layout with headline, subheadline, dual CTAs,
- * and illustration on the right. Stacks on mobile.
+ * trust signals from en.ts, and illustration on the right.
  */
 export function HeroSection() {
   return (
@@ -25,11 +25,11 @@ export function HeroSection() {
           {/* Text column */}
           <div className="order-2 lg:order-1">
             <p className="text-brand-orange font-sans font-semibold text-sm uppercase tracking-widest mb-4">
-              Human-Centered AI Consulting
+              {hero.eyebrow}
             </p>
             <h1
               id="hero-heading"
-              className="font-sans font-bold text-4xl md:text-5xl xl:text-6xl text-brand-charcoal leading-tight mb-6"
+              className="font-sans font-bold text-4xl md:text-5xl xl:text-6xl text-brand-charcoal leading-tight mb-6 whitespace-pre-line"
             >
               {hero.headline}
             </h1>
@@ -38,28 +38,27 @@ export function HeroSection() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button href="#contact" size="lg">
+              <Button href="/?intent=consult#contact" size="lg">
                 {hero.ctaPrimary}
               </Button>
-              <Button href="#contact" variant="secondary" size="lg">
+              <Button href="/?intent=accessibility#contact" variant="secondary" size="lg">
                 {hero.ctaSecondary}
               </Button>
             </div>
 
-            {/* Trust signals */}
+            {/* Trust signals from en.ts */}
             <div className="mt-10 flex flex-wrap gap-6 items-center">
-              <div className="flex items-center gap-2 text-sm text-brand-charcoal-light">
-                <span aria-hidden="true" className="text-brand-green text-lg">✓</span>
-                Massachusetts-based
-              </div>
-              <div className="flex items-center gap-2 text-sm text-brand-charcoal-light">
-                <span aria-hidden="true" className="text-brand-green text-lg">✓</span>
-                Healthcare AI specialists
-              </div>
-              <div className="flex items-center gap-2 text-sm text-brand-charcoal-light">
-                <span aria-hidden="true" className="text-brand-green text-lg">✓</span>
-                WCAG 2.1 AA compliant work
-              </div>
+              {hero.trustSignals.map((signal) => (
+                <div
+                  key={signal}
+                  className="flex items-center gap-2 text-sm text-brand-charcoal-light"
+                >
+                  <span aria-hidden="true" className="text-brand-green text-lg">
+                    ✓
+                  </span>
+                  {signal}
+                </div>
+              ))}
             </div>
           </div>
 

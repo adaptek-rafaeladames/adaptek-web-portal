@@ -1,0 +1,43 @@
+name: Deploy to Firebase Hosting
+
+# Triggers only when code is merged/pushed to main
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out the repository code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Set up Node.js (matches your local version)
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # 3. Install dependencies (uses package-lock.json for exact versions)
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. Build the Next.js static export (outputs to /out)
+      - name: Build
+        run: npm run build
+        env:
+          NEXT_PUBLIC_FORMSPREE_ID: ${{ secrets.NEXT_PUBLIC_FORMSPREE_ID }}
+
+      # 5. Deploy the /out folder to Firebase Hosting
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ADAPTEK_AI }}
+          channelId: live
+          projectId: adaptek-ai

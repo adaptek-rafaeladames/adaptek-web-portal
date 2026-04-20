@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { en } from "@/lib/i18n/en";
+import { prefixAnchorHref } from "@/lib/prefixAnchorHref";
 
 const { footer } = en;
 
@@ -11,6 +13,7 @@ const { footer } = en;
  * accessibility statement, and copyright.
  */
 export function Footer() {
+  const pathname = usePathname();
   const [lang, setLang] = useState<"en" | "es">("en");
 
   return (
@@ -48,7 +51,7 @@ export function Footer() {
               {footer.links.map((link) => (
                 <li key={link.href}>
                   <a
-                    href={link.href}
+                    href={prefixAnchorHref(link.href, pathname)}
                     className="text-white/60 hover:text-brand-orange text-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand-orange rounded"
                   >
                     {link.label}

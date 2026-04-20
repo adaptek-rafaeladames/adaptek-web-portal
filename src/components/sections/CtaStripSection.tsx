@@ -25,14 +25,14 @@ export function CtaStripSection() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button
-            href="#contact"
+            href="/?intent=consult#contact"
             className="bg-white text-brand-orange hover:bg-brand-orange-light border-0 font-bold"
             size="lg"
           >
             {ctaStrip.ctaPrimary}
           </Button>
           <Button
-            href="#contact"
+            href="/?intent=accessibility#contact"
             className="bg-transparent text-white border-2 border-white hover:bg-white/10"
             size="lg"
           >

@@ -5,8 +5,8 @@ import { en } from "@/lib/i18n/en";
 const { proof } = en;
 
 /**
- * ProofSection — social trust section with outcome stats,
- * client logos placeholder, and secondary CTA.
+ * ProofSection — V3 case study cards replacing the generic stat metrics.
+ * Dark charcoal background, 3 case study cards with real engagement metrics.
  */
 export function ProofSection() {
   return (
@@ -31,50 +31,64 @@ export function ProofSection() {
           </p>
         </div>
 
-        {/* Outcome stats */}
+        {/* Case study cards */}
         <ul
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14"
+          className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12"
           role="list"
-          aria-label="Key outcome metrics"
+          aria-label="Adaptek case studies"
         >
-          {proof.outcomes.map((outcome, i) => (
+          {proof.caseStudies.map((study, i) => (
             <li
               key={i}
-              className="text-center p-8 rounded-2xl bg-white/5 border border-white/10"
+              className="rounded-2xl bg-white/5 border border-white/10 p-7 flex flex-col"
             >
-              <p className="font-sans font-extrabold text-5xl text-brand-orange mb-3">
-                {outcome.metric}
+              {/* Industry tag */}
+              <span className="inline-block text-xs font-semibold uppercase tracking-wider text-brand-orange border border-brand-orange/40 rounded-full px-3 py-1 mb-4 self-start">
+                {study.tag}
+              </span>
+
+              {/* Title */}
+              <h3 className="font-sans font-bold text-lg text-white leading-snug mb-3">
+                {study.title}
+              </h3>
+
+              {/* Context */}
+              <p className="text-white/50 text-xs leading-relaxed mb-2">
+                {study.context}
               </p>
-              <p className="text-white/70 text-sm leading-relaxed">
-                {outcome.description}
+
+              {/* Approach */}
+              <p className="text-white/70 text-xs leading-relaxed mb-6 flex-1">
+                {study.approach}
               </p>
+
+              {/* Metrics row */}
+              <ul
+                className="grid grid-cols-3 gap-3 pt-5 border-t border-white/10"
+                role="list"
+              >
+                {study.metrics.map((metric, j) => (
+                  <li key={j} className="text-center">
+                    <p className="font-sans font-extrabold text-xl text-brand-orange leading-none mb-1">
+                      {metric.value}
+                    </p>
+                    <p className="text-white/80 text-xs font-medium leading-tight mb-0.5">
+                      {metric.label}
+                    </p>
+                    <p className="text-white/40 text-xs leading-tight">
+                      {metric.sub}
+                    </p>
+                  </li>
+                ))}
+              </ul>
             </li>
           ))}
         </ul>
 
-        {/* Client logos placeholder */}
-        <div className="text-center mb-10">
-          <p className="text-white/50 text-sm uppercase tracking-widest font-sans mb-6">
-            {proof.logosLabel}
-          </p>
-          <div
-            className="flex flex-wrap justify-center gap-6"
-            aria-label="Client logos — coming soon"
-          >
-            {[1, 2, 3, 4].map((n) => (
-              <div
-                key={n}
-                className="h-10 w-28 rounded-lg bg-white/10 animate-pulse"
-                aria-hidden="true"
-              />
-            ))}
-          </div>
-        </div>
-
         {/* CTA */}
         <div className="text-center">
           <Button
-            href="#contact"
+            href="/?intent=challenge#contact"
             className="bg-brand-orange hover:bg-brand-orange-dark text-white border-0"
           >
             {proof.ctaText} →
