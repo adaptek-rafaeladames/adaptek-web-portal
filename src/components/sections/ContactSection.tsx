@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
@@ -91,7 +91,7 @@ function Field({
           aria-invalid={!!error}
           aria-describedby={error ? `${id}-error` : undefined}
           className={cn(inputClasses, "resize-none")}
-          placeholder="Tell us about your organization and what you'd like AI to help with…"
+          placeholder={contact.messagePlaceholder}
         />
       ) : (
         <input
@@ -130,6 +130,16 @@ export function ContactSection() {
   const [formData, setFormData] = useState<FormData>(initialForm);
   const [formState, setFormState] = useState<FormState>("idle");
   const [errors, setErrors] = useState<Partial<FormData>>({});
+
+  // Pre-fill message based on ?intent= query param set by CTA buttons
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const intent = params.get("intent");
+    const prefillMap: Record<string, string> = contact.intentPrefill;
+    if (intent && prefillMap[intent]) {
+      setFormData((prev) => ({ ...prev, message: prefillMap[intent] }));
+    }
+  }, []);
 
   const setField = (field: keyof FormData) => (value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));

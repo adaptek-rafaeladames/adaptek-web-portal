@@ -5,9 +5,16 @@ import { en } from "@/lib/i18n/en";
 
 const { services } = en;
 
-// Icon map — using simple accessible SVG icons
+// Icon map — accessible SVG icons
 const ServiceIcon = ({ id }: { id: string }) => {
   const icons: Record<string, React.ReactNode> = {
+    accessibility: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7" aria-hidden="true">
+        <circle cx="12" cy="5" r="1.5" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 9h6M12 9v5m-3 4l1.5-4M15 18l-1.5-4" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M5 12a7 7 0 1014 0A7 7 0 005 12z" />
+      </svg>
+    ),
     brain: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7" aria-hidden="true">
         <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
@@ -17,11 +24,6 @@ const ServiceIcon = ({ id }: { id: string }) => {
     workflow: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7" aria-hidden="true">
         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-      </svg>
-    ),
-    shield: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
       </svg>
     ),
     people: (
@@ -34,7 +36,7 @@ const ServiceIcon = ({ id }: { id: string }) => {
 };
 
 /**
- * ServicesSection — 4-card grid with service title, tagline, bullets, and pricing.
+ * ServicesSection — V3 4-service-line grid with lead attribution.
  */
 export function ServicesSection() {
   return (
@@ -81,13 +83,22 @@ export function ServicesSection() {
                   <p className="text-brand-green-dark font-medium text-sm mt-1">
                     {service.tagline}
                   </p>
+                  {/* Lead attribution — V3 addition */}
+                  <p className="text-brand-charcoal-light text-xs mt-2 italic">
+                    {service.lead}
+                  </p>
                 </CardHeader>
 
                 <CardBody className="flex-1">
                   <ul className="space-y-2" role="list">
                     {service.bullets.map((bullet, i) => (
                       <li key={i} className="flex items-start gap-2 text-xs">
-                        <span aria-hidden="true" className="text-brand-orange mt-0.5 shrink-0">→</span>
+                        <span
+                          aria-hidden="true"
+                          className="text-brand-orange mt-0.5 shrink-0"
+                        >
+                          →
+                        </span>
                         {bullet}
                       </li>
                     ))}
@@ -104,9 +115,8 @@ export function ServicesSection() {
           ))}
         </ul>
 
-        {/* CTA below grid */}
         <div className="text-center mt-12">
-          <Button href="#contact" variant="secondary">
+          <Button href="/?intent=services#contact" variant="secondary">
             Not sure which service fits? Let&#39;s talk →
           </Button>
         </div>

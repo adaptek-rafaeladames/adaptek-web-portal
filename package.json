@@ -9,8 +9,8 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "type-check": "tsc --noEmit",
-    "test": "jest --watchAll=false",
-    "test:watch": "jest --watchAll"
+    "test": "jest --watchAll=false --config jest.config.js",
+    "test:watch": "jest --watchAll --config jest.config.js"
   },
   "dependencies": {
     "clsx": "^2.1.1",

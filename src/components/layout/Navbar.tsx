@@ -1,10 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { cn } from "@/lib/cn";
 import { Button } from "@/components/ui/Button";
 import { en } from "@/lib/i18n/en";
+import { prefixAnchorHref } from "@/lib/prefixAnchorHref";
 
 const { nav } = en;
 
@@ -13,6 +15,7 @@ const { nav } = en;
  * and visible focus styles for full keyboard accessibility.
  */
 export function Navbar() {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -44,7 +47,7 @@ export function Navbar() {
         <div className="container-content flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a
-            href="#"
+            href="/"
             className="flex items-center gap-2 focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2 rounded-lg"
             aria-label="Adaptek — home"
           >
@@ -63,13 +66,13 @@ export function Navbar() {
             {nav.links.map((link) => (
               <a
                 key={link.href}
-                href={link.href}
+                href={prefixAnchorHref(link.href, pathname)}
                 className="text-brand-charcoal hover:text-brand-orange font-sans font-medium text-sm transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2 rounded"
               >
                 {link.label}
               </a>
             ))}
-            <Button href="#contact" size="sm">
+            <Button href="/?intent=consult#contact" size="sm">
               {nav.cta}
             </Button>
           </nav>
@@ -99,7 +102,7 @@ export function Navbar() {
               {nav.links.map((link) => (
                 <li key={link.href}>
                   <a
-                    href={link.href}
+                    href={prefixAnchorHref(link.href, pathname)}
                     className="block py-3 text-brand-charcoal hover:text-brand-orange font-sans font-medium transition-colors"
                     onClick={() => setMenuOpen(false)}
                   >
@@ -108,7 +111,7 @@ export function Navbar() {
                 </li>
               ))}
               <li className="pt-2">
-                <Button href="#contact" className="w-full justify-center">
+                <Button href="/?intent=consult#contact" className="w-full justify-center">
                   {nav.cta}
                 </Button>
               </li>
