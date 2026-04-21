@@ -35,5 +35,5 @@ export const es = {
   founders: { sectionLabel: "El equipo", headline: "[TODO]", subheadline: "[TODO]", members: [] },
   ctaStrip: { headline: "[TODO]", subheadline: "[TODO]", ctaPrimary: "Agendar consulta", ctaSecondary: "Ver demo" },
   contact: { sectionLabel: "Contacto", headline: "[TODO]", subheadline: "[TODO]", fields: { firstName: "Nombre", lastName: "Apellido", email: "Correo laboral", company: "Empresa", role: "Cargo", message: "¿En qué quieres que te ayude la IA?" }, submit: "Enviar solicitud", successMessage: "[TODO]", errorMessage: "[TODO]" },
-  footer: { tagline: "La tecnología debe adaptarse a las realidades humanas.", links: [], languageToggle: { en: "EN", es: "ES" }, copyright: "© 2026 Adaptek. Todos los derechos reservados.", email: "rafael.adames@adaptek.ai" },
+  footer: { tagline: "La tecnología debe adaptarse a las realidades humanas.", links: [], languageToggle: { en: "EN", es: "ES" }, copyright: "© 2026 Adaptek. Todos los derechos reservados.", email: "info@adaptek.ai" },
 } as const;

@@ -163,10 +163,10 @@ export default function AccessibilityPage() {
               <p className="text-brand-charcoal font-medium">Adaptek Accessibility Contact</p>
               <p>
                 <a
-                  href="mailto:rafael.adames@adaptek.ai"
+                  href="mailto:info@adaptek.ai"
                   className="text-brand-orange underline underline-offset-2 hover:text-brand-charcoal transition-colors"
                 >
-                  rafael.adames@adaptek.ai
+                  info@adaptek.ai
                 </a>
               </p>
               <p className="text-sm">

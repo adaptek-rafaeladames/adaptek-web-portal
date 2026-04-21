@@ -19,7 +19,7 @@ export const en = {
 
   hero: {
     eyebrow: "Human & Psychological AI Consulting",
-    headline: "AI that works for everyone.\nIncluding the people everyone else forgets.",
+    headline: "AI that works for everyone.\nDesigned for people of all abilities.",
     subheadline:
       "Adaptek combines AI engineering, behavioral science, and disability-informed accessibility design — because 95% of AI initiatives fail not because of the technology, but because of the humans who have to use it.",
     ctaPrimary: "Book a 30-minute consult",
@@ -28,13 +28,14 @@ export const en = {
       "Paper-cut illustration of diverse people — including a person in a wheelchair — connected by glowing lines to AI and health symbols",
     trustSignals: [
       "Disability-informed AI design",
-      "Cyberpsychology-backed adoption",
+      "Psychology-backed adoption",
       "WCAG 2.2 AA compliant",
+      "Responsible AI · EU AI Act aligned",
     ],
   },
 
   whyAdaptek: {
-    sectionLabel: "The Problem",
+    sectionLabel: "The Challenges",
     stat: "95%",
     statLabel: "of corporate AI initiatives fail",
     statCaption:
@@ -94,7 +95,7 @@ export const en = {
     solutionsHeadline: "✓ What we do differently:",
     solutions: [
       "Co-design with your staff — from clinicians to DSPs to operations teams",
-      "Behavioral readiness assessments grounded in our Cyberpsychology Trust Framework",
+      "Behavioral readiness assessments grounded in our Human-Centered Design framework",
       "Disability-informed design, tested with people who have lived experience",
       "Responsible AI guardrails: input filtering, output validation, observability",
       "Boutique depth: both founders on every engagement, no junior handoffs",
@@ -278,7 +279,7 @@ export const en = {
     vanessaQuote:
       "Accessibility is never a checkbox for us. It's lived reality — and it's the starting point for every engagement, not an afterthought.",
     vanessaCredit:
-      "Vanessa Echandia · Behavioral Scientist · M.S. User-Centered Design (Brandeis) · Person with MS",
+      "Vanessa Echandia · Behavioral Scientist · M.S. User-Centered Design · Person with MS",
   },
 
   proof: {
@@ -318,7 +319,7 @@ export const en = {
         context:
           "300-person company · $108K/year Copilot investment · only 23% active usage at Day 60",
         approach:
-          "Culture audit + resistance mapping (3 distinct groups) · Cyberpsychology-driven workshops · internal champions network",
+          "Culture audit + resistance mapping (3 distinct groups) · psychology-driven workshops · internal champions network",
         metrics: [
           {
             value: "84%",
@@ -378,7 +379,7 @@ export const en = {
         values: [true, true, true, false],
       },
       {
-        capability: "Behavioral Science & Cyberpsychology",
+        capability: "Behavioral Science & Psychology",
         values: [true, false, false, false],
       },
       {
@@ -399,7 +400,7 @@ export const en = {
       },
     ],
     closingLine:
-      "Vanessa's M.S. in User-Centered Design (Brandeis University) combined with Rafael's enterprise AI engineering background creates a structural moat no other boutique consultancy can replicate.",
+      "Vanessa's expertise in user-centered design and behavioral science, combined with Rafael's enterprise AI engineering background, creates a structural moat no other boutique consultancy can replicate.",
   },
 
   founders: {
@@ -413,11 +414,11 @@ export const en = {
         title: "Co-Founder, Human-Centered AI Engineering",
         imageAlt: "Portrait of Rafael Adames, Co-Founder of Adaptek",
         imageSrc: "/images/rafael-adames.jpg",
-        bio: "Rafael brings 10+ years of enterprise AI experience including large-scale deployments at Accenture across healthcare, financial services, and operations. He explains AI architecture, risks, and limitations from the inside out — combining deep technical expertise with formal study in Human Systems Engineering (UX) at ASU to design AI that fits the people who actually use it.",
+        bio: "Rafael brings 10+ years of enterprise AI experience including large-scale deployments at Accenture across healthcare, financial services, and operations. He explains AI architecture, risks, and limitations from the inside out — combining deep technical expertise with advanced study in Software Engineering with Applied Artificial Intelligence in Massachusetts to design AI that fits the people who actually use it.",
         highlights: [
           "10+ years enterprise AI, Accenture",
           "Production RAG, MLOps, Responsible AI guardrails",
-          "Human Systems Engineering / UX, ASU",
+          "Software Engineering with Applied Artificial Intelligence, Massachusetts",
           "Bilingual: English / Spanish",
         ],
         linkedin: "https://www.linkedin.com/in/rafaeladames/",
@@ -427,8 +428,9 @@ export const en = {
         title: "Co-Founder, AI Accessibility & Human Impact",
         imageAlt: "Portrait of Vanessa Echandia, Co-Founder of Adaptek",
         imageSrc: "/images/vanessa-echandia.jpg",
-        bio: "Vanessa combines an M.S. in User-Centered Design (Brandeis University) with lived experience as a person with multiple sclerosis and years of disability advocacy at the National MS Society. She brings human psychology, usability research, and inclusive design principles to every AI engagement — ensuring systems work for the people who actually have to use them.",
+        bio: "Vanessa holds a background in Social Science with a focus in Psychology, deepened by an M.S. in User-Centered Design (Brandeis University) — combined with lived experience as a person with multiple sclerosis and years of disability advocacy at the National MS Society. She brings human psychology, usability research, and inclusive design principles to every AI engagement — ensuring systems work for the people who actually have to use them.",
         highlights: [
+          "B.S. Social Science · Psychology concentration",
           "M.S. User-Centered Design, Brandeis University",
           "Disability advocate · National MS Society alumna · Person with MS",
           "Human-centered design · Accessible behavioral change · UX research",
@@ -474,7 +476,7 @@ export const en = {
     },
     submit: "Start the Conversation",
     errorMessage:
-      "Something went wrong. Please try again or email us directly at rafael.adames@adaptek.ai.",
+      "Something went wrong. Please try again or email us directly at info@adaptek.ai.",
   },
 
   thanks: {
@@ -523,7 +525,24 @@ export const en = {
       es: "ES",
     },
     copyright: "© 2026 Adaptek. All rights reserved.",
-    email: "rafael.adames@adaptek.ai",
+    email: "info@adaptek.ai",
+    social: [
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/company/adaptek-ai/",
+        icon: "linkedin",
+      },
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/adaptek.ai/",
+        icon: "instagram",
+      },
+      {
+        label: "Facebook",
+        href: "https://www.facebook.com/profile.php?id=61572114027631",
+        icon: "facebook",
+      },
+    ],
   },
 } as const;
 

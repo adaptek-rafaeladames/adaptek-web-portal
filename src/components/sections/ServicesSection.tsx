@@ -83,10 +83,6 @@ export function ServicesSection() {
                   <p className="text-brand-green-dark font-medium text-sm mt-1">
                     {service.tagline}
                   </p>
-                  {/* Lead attribution — V3 addition */}
-                  <p className="text-brand-charcoal-light text-xs mt-2 italic">
-                    {service.lead}
-                  </p>
                 </CardHeader>
 
                 <CardBody className="flex-1">

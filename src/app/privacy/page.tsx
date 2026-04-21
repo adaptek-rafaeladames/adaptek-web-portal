@@ -149,10 +149,10 @@ export default function PrivacyPage() {
               respond to and fulfill the associated business inquiry. If you would like your
               information removed, please email us at{" "}
               <a
-                href="mailto:rafael.adames@adaptek.ai"
+                href="mailto:info@adaptek.ai"
                 className="text-brand-orange underline underline-offset-2 hover:text-brand-charcoal transition-colors"
               >
-                rafael.adames@adaptek.ai
+                info@adaptek.ai
               </a>{" "}
               and we will delete it promptly.
             </p>
@@ -170,10 +170,10 @@ export default function PrivacyPage() {
               GDPR or CCPA) to access, correct, or request deletion of personal information we hold
               about you. To exercise any of these rights, contact us at{" "}
               <a
-                href="mailto:rafael.adames@adaptek.ai"
+                href="mailto:info@adaptek.ai"
                 className="text-brand-orange underline underline-offset-2 hover:text-brand-charcoal transition-colors"
               >
-                rafael.adames@adaptek.ai
+                info@adaptek.ai
               </a>
               . We will respond within 30 days.
             </p>
@@ -220,10 +220,10 @@ export default function PrivacyPage() {
               <strong>Adaptek LLC</strong>
               <br />
               <a
-                href="mailto:rafael.adames@adaptek.ai"
+                href="mailto:info@adaptek.ai"
                 className="text-brand-orange underline underline-offset-2 hover:text-brand-charcoal transition-colors"
               >
-                rafael.adames@adaptek.ai
+                info@adaptek.ai
               </a>
             </address>
           </section>
