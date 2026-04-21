@@ -9,7 +9,7 @@ import { en } from "@/lib/i18n/en";
 const { contact } = en;
 
 // Replace with your Formspree form ID after creating an account at formspree.io
-// Account email: rafael.adames@adaptek.ai
+// Account email: info@adaptek.ai
 // Set NEXT_PUBLIC_FORMSPREE_ID in .env.local
 const FORMSPREE_ENDPOINT =
   process.env.NEXT_PUBLIC_FORMSPREE_ID
