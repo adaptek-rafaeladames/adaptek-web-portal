@@ -1,0 +1,51 @@
+# .github/workflows/release.yml
+#
+# Triggered automatically whenever a version tag (v*) is pushed to main.
+# Runs git-cliff to extract release notes for that specific tag,
+# then creates a GitHub Release with those notes attached.
+#
+# Requirements:
+#   - No secrets needed — uses the built-in GITHUB_TOKEN
+#   - cliff.toml must exist at the repo root
+#   - Commits should follow conventional format (feat:, fix:, chore:, etc.)
+
+name: Create GitHub Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write   # required to create GitHub Releases
+
+jobs:
+  release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # git-cliff needs the full tag + commit history
+
+      - name: Generate release notes with git-cliff
+        uses: orhun/git-cliff-action@v3
+        id: cliff
+        with:
+          config: cliff.toml
+          # --current  → only the commits for this tag (not the full history)
+          # --strip all → omit the header/footer so the body is clean for GitHub
+          args: --current --strip all
+        env:
+          OUTPUT: RELEASE_NOTES.md
+          GITHUB_REPO: ${{ github.repository }}
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "Release ${{ github.ref_name }}"
+          body_path: RELEASE_NOTES.md
+          draft: false
+          prerelease: false
